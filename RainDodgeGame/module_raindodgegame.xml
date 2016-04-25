@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="module_raindodgegame" default="compile.module.raindodgegame">
   <dirname property="module.raindodgegame.basedir" file="${ant.file.module_raindodgegame}"/>
-  
-  <property name="module.jdk.home.raindodgegame" value="${project.jdk.home}"/>
-  <property name="module.jdk.bin.raindodgegame" value="${project.jdk.bin}"/>
-  <property name="module.jdk.classpath.raindodgegame" value="${project.jdk.classpath}"/>
-  
-  <property name="compiler.args.raindodgegame" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
-  
+
   <property name="raindodgegame.output.dir" value="${module.raindodgegame.basedir}/out/production/RainDodgeGame"/>
   <property name="raindodgegame.testoutput.dir" value="${module.raindodgegame.basedir}/out/test/RainDodgeGame"/>
   
@@ -16,7 +10,6 @@
   </path>
   
   <path id="raindodgegame.module.production.classpath">
-    <path refid="${module.jdk.classpath.raindodgegame}"/>
   </path>
   
   <path id="raindodgegame.runtime.production.module.classpath">
@@ -24,7 +17,6 @@
   </path>
   
   <path id="raindodgegame.module.classpath">
-    <path refid="${module.jdk.classpath.raindodgegame}"/>
     <pathelement location="${raindodgegame.output.dir}"/>
   </path>
   
@@ -35,8 +27,7 @@
   
   
   <patternset id="excluded.from.module.raindodgegame">
-    <patternset refid="ignored.files"/>
-  </patternset>
+      </patternset>
   
   <patternset id="excluded.from.compilation.raindodgegame">
     <patternset refid="excluded.from.module.raindodgegame"/>
@@ -48,29 +39,16 @@
     </dirset>
   </path>
   
-  
-  <target name="compile.module.raindodgegame" depends="compile.module.raindodgegame.production,compile.module.raindodgegame.tests" description="Compile module RainDodgeGame"/>
-  
-  <target name="compile.module.raindodgegame.production" depends="register.custom.compilers" description="Compile module RainDodgeGame; production classes">
-    <mkdir dir="${raindodgegame.output.dir}"/>
-    <javac2 destdir="${raindodgegame.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.raindodgegame}/javac">
-      <compilerarg line="${compiler.args.raindodgegame}"/>
-      <bootclasspath refid="raindodgegame.module.bootclasspath"/>
-      <classpath refid="raindodgegame.module.production.classpath"/>
-      <src refid="raindodgegame.module.sourcepath"/>
-      <patternset refid="excluded.from.compilation.raindodgegame"/>
-    </javac2>
-    
+
     <copy todir="${raindodgegame.output.dir}">
       <fileset dir="${module.raindodgegame.basedir}/src">
-        <patternset refid="compiler.resources"/>
+
         <type type="file"/>
       </fileset>
     </copy>
-  </target>
+
   
-  <target name="compile.module.raindodgegame.tests" depends="register.custom.compilers,compile.module.raindodgegame.production" description="compile module RainDodgeGame; test classes" unless="skip.tests"/>
-  
+
   <target name="clean.module.raindodgegame" description="cleanup module">
     <delete dir="${raindodgegame.output.dir}"/>
     <delete dir="${raindodgegame.testoutput.dir}"/>
