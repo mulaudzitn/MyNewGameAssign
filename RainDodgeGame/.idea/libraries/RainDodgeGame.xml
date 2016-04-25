@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="RainDodgeGame">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/RainDodgeGame_jar/RainDodgeGame.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
