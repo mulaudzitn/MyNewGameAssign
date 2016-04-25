@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_elen7045_rain_drop_game" default="compile.module.elen7045_rain_drop_game">
+  <dirname property="module.elen7045_rain_drop_game.basedir" file="${ant.file.module_elen7045_rain_drop_game}"/>
+  
+  <property name="module.jdk.home.elen7045_rain_drop_game" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.elen7045_rain_drop_game" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.elen7045_rain_drop_game" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.elen7045_rain_drop_game" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="elen7045_rain_drop_game.output.dir" value="${module.elen7045_rain_drop_game.basedir}/out/production/ELEN7045 RAIN DROP GAME"/>
+  <property name="elen7045_rain_drop_game.testoutput.dir" value="${module.elen7045_rain_drop_game.basedir}/out/test/ELEN7045 RAIN DROP GAME"/>
+  
+  <path id="elen7045_rain_drop_game.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="elen7045_rain_drop_game.module.production.classpath">
+    <path refid="${module.jdk.classpath.elen7045_rain_drop_game}"/>
+  </path>
+  
+  <path id="elen7045_rain_drop_game.runtime.production.module.classpath">
+    <pathelement location="${elen7045_rain_drop_game.output.dir}"/>
+  </path>
+  
+  <path id="elen7045_rain_drop_game.module.classpath">
+    <path refid="${module.jdk.classpath.elen7045_rain_drop_game}"/>
+    <pathelement location="${elen7045_rain_drop_game.output.dir}"/>
+  </path>
+  
+  <path id="elen7045_rain_drop_game.runtime.module.classpath">
+    <pathelement location="${elen7045_rain_drop_game.testoutput.dir}"/>
+    <pathelement location="${elen7045_rain_drop_game.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.elen7045_rain_drop_game">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.elen7045_rain_drop_game">
+    <patternset refid="excluded.from.module.elen7045_rain_drop_game"/>
+  </patternset>
+  
+  <path id="elen7045_rain_drop_game.module.sourcepath">
+    <dirset dir="${module.elen7045_rain_drop_game.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.elen7045_rain_drop_game" depends="compile.module.elen7045_rain_drop_game.production,compile.module.elen7045_rain_drop_game.tests" description="Compile module ELEN7045 RAIN DROP GAME"/>
+  
+  <target name="compile.module.elen7045_rain_drop_game.production" depends="register.custom.compilers" description="Compile module ELEN7045 RAIN DROP GAME; production classes">
+    <mkdir dir="${elen7045_rain_drop_game.output.dir}"/>
+    <javac2 destdir="${elen7045_rain_drop_game.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.elen7045_rain_drop_game}/javac">
+      <compilerarg line="${compiler.args.elen7045_rain_drop_game}"/>
+      <bootclasspath refid="elen7045_rain_drop_game.module.bootclasspath"/>
+      <classpath refid="elen7045_rain_drop_game.module.production.classpath"/>
+      <src refid="elen7045_rain_drop_game.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.elen7045_rain_drop_game"/>
+    </javac2>
+    
+    <copy todir="${elen7045_rain_drop_game.output.dir}">
+      <fileset dir="${module.elen7045_rain_drop_game.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.elen7045_rain_drop_game.tests" depends="register.custom.compilers,compile.module.elen7045_rain_drop_game.production" description="compile module ELEN7045 RAIN DROP GAME; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.elen7045_rain_drop_game" description="cleanup module">
+    <delete dir="${elen7045_rain_drop_game.output.dir}"/>
+    <delete dir="${elen7045_rain_drop_game.testoutput.dir}"/>
+  </target>
+</project>

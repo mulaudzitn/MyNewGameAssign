@@ -1,4 +1,6 @@
-package com.wits.edu.Elen7045.GameLevels;
+package gameLevels;
+import gameLevels.GameLevelInterface;
+
 import java.awt.Color;
 /**
  * Created by Norman Mulaudzi on 2016/04/18.
@@ -125,7 +127,6 @@ public class Level1 implements GameLevelInterface {
     public double getDropDiameter() {
         return dropDiameter;
     }
-
 
 
     public void setDropDiameter(double dropDiameter) {

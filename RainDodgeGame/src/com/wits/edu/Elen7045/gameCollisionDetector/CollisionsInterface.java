@@ -7,4 +7,5 @@ import java.awt.*;
  */
 public interface CollisionsInterface {
      boolean checkForCollisions (Rectangle playerRectangle, Rectangle dropRectangle );
+
 }
