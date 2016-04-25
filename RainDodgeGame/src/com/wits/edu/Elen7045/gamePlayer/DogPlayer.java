@@ -1,21 +1,15 @@
 package com.wits.edu.Elen7045.gamePlayer;
+
 import com.wits.edu.Elen7045.GameLevels.GameLevelFactory;
 import com.wits.edu.Elen7045.GameLevels.GameLevelInterface;
-import com.wits.edu.Elen7045.GamePlayerControls.GameKeyListener;
-import com.wits.edu.Elen7045.Rain.Rain;
 import com.wits.edu.Elen7045.gameCollisionDetector.CollissionsContext;
-import com.wits.edu.Elen7045.gameScreen.GamePanel;
+
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.Rectangle;
-import java.awt.Graphics2D;
-import java.awt.event.KeyListener;
-import java.awt.geom.Ellipse2D;
 
 /**
- * Created by Norman Mulaudzi on 2016/04/18.
+ * Created by Norman Mulaudzi on 2016/04/26.
  */
-public class RectangularPlayer implements PlayerInterface {
+public class DogPlayer implements PlayerInterface {
     private int previousPlayer_Position_X_Axis;
     private int playerPosition_X_Axis;
     private int playerPosition_Y_Axis;
@@ -26,9 +20,9 @@ public class RectangularPlayer implements PlayerInterface {
     private Rectangle rainRectangle;
     private CollissionsContext context;
     private boolean hasCollissionOccured;
-    public RectangularPlayer() {
+    public DogPlayer() {
 
-          this.rainRectangle = rainRectangle;
+        this.rainRectangle = rainRectangle;
         //
         playerPosition_X_Axis = gameLevel.get_X_PlayerPosition();
 
@@ -86,6 +80,3 @@ public class RectangularPlayer implements PlayerInterface {
         return hasCollissionOccured = context.executeStrategy(rainRectangle.getBounds(),this.getBounds() );
     }
 }
-
-
-

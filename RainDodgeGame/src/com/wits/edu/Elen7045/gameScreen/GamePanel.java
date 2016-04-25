@@ -109,7 +109,7 @@ public class GamePanel extends JPanel {
     private void gameplayOver() {
         JOptionPane.showMessageDialog(this, "Game Over", "Game Over",
                 JOptionPane.YES_NO_OPTION);
-        System.exit(ABORT);
+        System.exit(0);
     }
 
     void drawDropsOnScreen(Graphics2D g2) {
@@ -132,8 +132,14 @@ public class GamePanel extends JPanel {
         Rain rain = rainIterator.next();
         rain.updateRain();
         rainRectangle = rain.getBounds();
-      //  hasCollissionOccured = player.isPlayerRainDropCollide( rainRectangle);
+        //  hasCollissionOccured = player.isPlayerRainDropCollide( rainRectangle);
         rain.drawRain(g2);
+        if(player.getBounds().getX() < rainRectangle.getY() ){
+           if( hasCollissionOccured = context.executeStrategy( player.getBounds(),rain.getBounds()))
+           {
+               gameplayOver();
+           }
+        }
 
         if (rain.getY() >= getHeight()) {
             //create new drops (2-8)
@@ -144,9 +150,9 @@ public class GamePanel extends JPanel {
             rainIterator.remove();
 
         }
-        //check for player and raindrop collissions
-  //            hasCollissionOccured = context.executeStrategy(rain.getBounds(), player.getBounds());
-
+        //check for player and raindrop collissionsp
+           // System.out.println( " Rain X Axis " + rain.getBounds().getX());
+           // System.out.println( "Rain Y Axis " + rain.getBounds().getY());
 
     }
 

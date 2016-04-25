@@ -17,6 +17,7 @@ public static void main(String[] args) {
         final GamePanel rPanel=new GamePanel();
         frame.add(rPanel);
         frame.setVisible( true );
+        frame.setLocation( 1045,31);
         frame.setResizable(false);
         frame.addWindowListener(new WindowAdapter() {
             @Override

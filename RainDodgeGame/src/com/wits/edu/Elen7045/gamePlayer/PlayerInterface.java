@@ -15,7 +15,7 @@ public interface PlayerInterface {
 
         // used for checking collissions
 
-      //  Rectangle getBounds();
+       Rectangle getBounds();
     }
 
 

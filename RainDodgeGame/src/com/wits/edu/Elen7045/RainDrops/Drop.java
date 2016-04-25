@@ -40,6 +40,7 @@ import java.util.function.ToIntBiFunction;
     }
 
     public void draw(Graphics2D g2) {
+       // g2.setColor(Color.WHITE);
         Ellipse2D.Double circle = new Ellipse2D.Double(x_Current, y_Current, gameLevel.getDropDiameter(), gameLevel.getDropDiameter());
         g2.fill(circle);
     }
